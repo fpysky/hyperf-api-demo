@@ -22,8 +22,6 @@
         "hyperf/database": "2.2.*",
         "hyperf/db-connection": "2.2.*",
         "hyperf/framework": "2.2.*",
-        "hyperf/grpc-client": "2.2.*",
-        "hyperf/grpc-server": "2.2.*",
         "hyperf/guzzle": "2.2.*",
         "hyperf/http-server": "2.2.*",
         "hyperf/logger": "2.2.*",
