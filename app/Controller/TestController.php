@@ -15,7 +15,6 @@ class TestController extends AbstractController
     public function test(): array
     {
         $result = $this->testService->add(1, 2);
-        $aa = $this->testService->create(11);
         return [
             'data' => $result,
             'message' => 'ok!',
