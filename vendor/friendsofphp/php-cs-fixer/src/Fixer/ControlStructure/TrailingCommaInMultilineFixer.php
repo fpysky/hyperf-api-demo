@@ -113,9 +113,6 @@ SAMPLE
             (new FixerOptionBuilder('after_heredoc', 'Whether a trailing comma should also be placed after heredoc end.'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
-                ->setNormalizer(static function (Options $options, $value) {
-                    return $value;
-                })
                 ->getOption(),
             (new FixerOptionBuilder('elements', sprintf('Where to fix multiline trailing comma (PHP >= 8.0 for `%s` and `%s`).', self::ELEMENTS_PARAMETERS, self::MATCH_EXPRESSIONS))) // @TODO: remove text when PHP 8.0+ is required
                 ->setAllowedTypes(['array'])
@@ -168,7 +165,7 @@ SAMPLE
             $prevPrevIndex = $tokens->getPrevMeaningfulToken($prevIndex);
 
             if ($fixArguments
-                && $tokens[$prevIndex]->equalsAny([']', [T_CLASS], [T_STRING], [T_VARIABLE]])
+                && $tokens[$prevIndex]->equalsAny([']', [T_CLASS], [T_STRING], [T_VARIABLE], [T_STATIC]])
                 && !$tokens[$prevPrevIndex]->isGivenKind(T_FUNCTION)
             ) {
                 $this->fixBlock($tokens, $index);

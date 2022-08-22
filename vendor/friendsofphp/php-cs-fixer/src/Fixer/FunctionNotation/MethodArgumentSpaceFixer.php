@@ -29,7 +29,6 @@ use PhpCsFixer\Preg;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
-use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Fixer for rules defined in PSR2 ¶4.4, ¶4.6.
@@ -123,7 +122,7 @@ SAMPLE
      * {@inheritdoc}
      *
      * Must run before ArrayIndentationFixer.
-     * Must run after CombineNestedDirnameFixer, FunctionDeclarationFixer, ImplodeCallFixer, LambdaNotUsedImportFixer, MethodChainingIndentationFixer, NoMultilineWhitespaceAroundDoubleArrowFixer, NoUselessSprintfFixer, PowToExponentiationFixer, StrictParamFixer.
+     * Must run after CombineNestedDirnameFixer, FunctionDeclarationFixer, ImplodeCallFixer, LambdaNotUsedImportFixer, NoMultilineWhitespaceAroundDoubleArrowFixer, NoUselessSprintfFixer, PowToExponentiationFixer, StrictParamFixer.
      */
     public function getPriority(): int
     {
@@ -185,9 +184,6 @@ SAMPLE
             (new FixerOptionBuilder('after_heredoc', 'Whether the whitespace between heredoc end and comma should be removed.'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
-                ->setNormalizer(static function (Options $options, $value) {
-                    return $value;
-                })
                 ->getOption(),
         ]);
     }
