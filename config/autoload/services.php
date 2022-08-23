@@ -12,55 +12,23 @@ return [
         'register' => false,
     ],
     // 服务消费者相关配置
-    'consumers' => value(function () {
-        $consumers = [];
-        $services = [
-            'TestService' => TestServiceInterface::class,
-        ];
-        foreach ($services as $name => $interface) {
-            $consumers[] = [
-                'name' => $name,
-                'service' => $interface,
-                'id' => $interface,
-                'protocol' => 'jsonrpc-http',
-                'load_balancer' => 'random',
-                'registry' => [
-                    'protocol' => 'consul',
-                    'address' => env('CONSUL_URI', 'http://127.0.0.1:8500'),
-                ],
-                'options' => [
-                    'connect_timeout' => 5.0,
-                    'recv_timeout' => 5.0,
-                    'settings' => [
-                        'open_eof_split' => true,
-                        'package_eof' => "\r\n",
-                    ],
-                    'retry_count' => 2,
-                    'retry_interval' => 100, // 重试间隔（毫秒）
-                    'pool' => [
-                        'min_connections' => 1,
-                        'max_connections' => 32,
-                        'connect_timeout' => 10.0,
-                        'wait_timeout' => 3.0,
-                        'heartbeat' => -1,
-                        'max_idle_time' => 60.0,
-                    ],
-                ],
-            ];
-        }
-        return $consumers;
-    }),
+    'consumers' => [],
     // 服务提供者相关配置
     'providers' => [],
     // 服务驱动相关配置
     'drivers' => [
-        'consul' => [
-            'uri' => env('CONSUL_URI', 'http://127.0.0.1:8500'),
-            'token' => '',
-            'check' => [
-                'deregister_critical_service_after' => '90m',
-                'interval' => '1s',
+        'nacos' => [
+            'host' => env('NACOS_HOST'),
+            'port' => (int)env('NACOS_PORT'),
+            'username' => env('NACOS_USERNAME'),
+            'password' => env('NACOS_PASSWORD'),
+            'guzzle' => [
+                'config' => null,
             ],
-        ],
+            'group_name' => 'DEFAULT_GROUP',
+            'namespace_id' => '9ff3f56f-c407-4471-80dc-da8db255c59a',
+            'heartbeat' => 5,
+            'ephemeral' => true, // 是否注册临时实例
+        ]
     ],
 ];
