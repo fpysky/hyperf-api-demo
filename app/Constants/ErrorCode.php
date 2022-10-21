@@ -64,6 +64,16 @@ class ErrorCode extends AbstractConstants
     /** @Message("服务方法内部错误") */
     public const JSON_RPC_INTERNAL_ERROR = 532603;
 
+    /* -------------GRPC_RPC------------ */
+    /** @Message("远程调用未知错误") */
+    public const GRPC_RPC_UNKNOWN_ERROR = 500300;
+
+    /** @Message("服务方法出错") */
+    public const GRPC_RPC_SERVER_ERROR = 500301;
+
+    /** @Message("服务节点未找到") */
+    public const GRPC_RPC_NODE_NOT_FOUND = 500302;
+
     /* -------------GATEWAY------------ */
 
     /** @Message("上游无响应") */

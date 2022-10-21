@@ -22,6 +22,7 @@
         "hyperf/database": "2.2.*",
         "hyperf/db-connection": "2.2.*",
         "hyperf/framework": "2.2.*",
+        "hyperf/grpc-client": "2.2.*",
         "hyperf/guzzle": "2.2.*",
         "hyperf/http-server": "2.2.*",
         "hyperf/json-rpc": "2.2.*",
@@ -33,6 +34,7 @@
         "hyperf/rpc-client": "2.2.*",
         "hyperf/service-governance": "2.2.*",
         "hyperf/service-governance-consul": "2.2.*",
+        "hyperf/service-governance-nacos": "2.2.*",
         "hyperf/validation": "2.2.*"
     },
     "require-dev": {

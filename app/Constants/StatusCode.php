@@ -47,4 +47,18 @@ class StatusCode extends AbstractConstants
 
     /** @Message("gateway timeout") */
     public const GATEWAY_TIMEOUT = 504;
+
+    /** http状态码集合 */
+    public const STATUS_CODE_ARRAY = [
+        self::OK,
+        self::BAD_REQUEST,
+        self::UNAUTHORIZED,
+        self::FORBIDDEN,
+        self::NOT_FOUND,
+        self::METHOD_NOT_ALLOWED,
+        self::UNPROCESSABLE_ENTITY,
+        self::SERVER_ERROR,
+        self::BAD_GATEWAY,
+        self::GATEWAY_TIMEOUT,
+    ];
 }
